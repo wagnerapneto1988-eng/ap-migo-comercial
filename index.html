@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="WAP Consultoria Digital — soluções digitais acessíveis para pequenos negócios." />
+  <title>WAP Consultoria Digital — Soluções Comerciais</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#inicio" aria-label="WAP Consultoria Digital">
+      <span class="brand-mark">W</span>
+      <span><strong>WAP</strong><small>Consultoria Digital</small></span>
+    </a>
+    <nav>
+      <a href="#solucoes">Soluções</a>
+      <a href="#diagnostico">Diagnóstico</a>
+      <a href="#prospeccao">Prospecção</a>
+      <a href="#crm">CRM</a>
+    </nav>
+    <a class="btn small" id="topWhatsapp" href="#">Falar no WhatsApp</a>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-copy">
+        <div class="eyebrow">SOLUÇÕES PARA MICRO E PEQUENAS EMPRESAS</div>
+        <h1>Transforme uma necessidade real em uma solução digital que vende.</h1>
+        <p>Sites, delivery, agendamento, automação, atendimento e outras soluções objetivas para negócios que precisam ganhar tempo, organizar processos e vender melhor.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#solucoes">Ver 20 soluções</a>
+          <button class="btn ghost" id="heroDiagnostico">Fazer diagnóstico</button>
+        </div>
+        <div class="metrics">
+          <div><strong>20</strong><span>soluções comerciais</span></div>
+          <div><strong>1</strong><span>link por necessidade</span></div>
+          <div><strong>100%</strong><span>foco em conversão</span></div>
+        </div>
+      </div>
+      <aside class="migo-card">
+        <div class="migo-avatar" aria-hidden="true"><span>M</span></div>
+        <div>
+          <div class="migo-label">CONSULTOR MIGO</div>
+          <h2>Posso analisar sua necessidade.</h2>
+          <p>Responda algumas perguntas e veja quais soluções podem fazer sentido para o seu negócio.</p>
+          <button class="btn full" id="migoStart">Começar diagnóstico</button>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section" id="solucoes">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">CATÁLOGO COMERCIAL</div>
+          <h2>20 soluções para necessidades recorrentes</h2>
+          <p>Filtre por nicho ou procure pelo problema que o cliente precisa resolver.</p>
+        </div>
+        <div class="filters">
+          <select id="nicheFilter" aria-label="Filtrar por nicho"></select>
+          <input id="serviceSearch" type="search" placeholder="Buscar solução..." />
+        </div>
+      </div>
+      <div class="service-grid" id="serviceGrid"></div>
+    </section>
+
+    <section class="section alt" id="diagnostico">
+      <div class="split">
+        <div>
+          <div class="eyebrow">DIAGNÓSTICO COMERCIAL</div>
+          <h2>O cliente chega pelo serviço e o Migo descobre a necessidade.</h2>
+          <p>Cada solução pode receber um link próprio. Ao abrir o link, o visitante vê a oferta indicada e pode iniciar um diagnóstico curto antes de pedir uma proposta.</p>
+          <button class="btn" id="sectionDiagnostico">Testar diagnóstico</button>
+        </div>
+        <div class="flow-card">
+          <div class="flow-step"><span>01</span><b>Nicho</b><small>Ex.: salão de beleza</small></div>
+          <div class="flow-step"><span>02</span><b>Problema</b><small>Agendamento manual</small></div>
+          <div class="flow-step"><span>03</span><b>Solução</b><small>Agenda digital</small></div>
+          <div class="flow-step"><span>04</span><b>Diagnóstico</b><small>Migo qualifica o lead</small></div>
+          <div class="flow-step"><span>05</span><b>Proposta</b><small>WhatsApp</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="prospeccao">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">CENTRAL DE PROSPECÇÃO</div>
+          <h2>Gere uma abordagem específica e o link certo.</h2>
+          <p>Escolha o nicho, a solução e o estabelecimento. O sistema monta a mensagem e o link direcionado.</p>
+        </div>
+      </div>
+      <div class="prospect-grid">
+        <div class="panel form-panel">
+          <label>Nome do estabelecimento<input id="leadBusiness" placeholder="Ex.: Studio Bella" /></label>
+          <label>Nicho<select id="leadNiche"></select></label>
+          <label>Solução<select id="leadService"></select></label>
+          <label>Nome do contato (opcional)<input id="leadContact" placeholder="Ex.: Carla" /></label>
+          <div class="button-row">
+            <button class="btn" id="generatePitch">Gerar abordagem</button>
+            <button class="btn ghost" id="saveLead">Salvar no CRM</button>
+          </div>
+        </div>
+        <div class="panel output-panel">
+          <label>Mensagem<textarea id="pitchOutput" rows="9"></textarea></label>
+          <label>Link direcionado<input id="serviceLink" readonly /></label>
+          <div class="button-row">
+            <button class="btn" id="openWhatsapp">Abrir WhatsApp</button>
+            <button class="btn ghost" id="copyPitch">Copiar mensagem</button>
+            <button class="btn ghost" id="copyLink">Copiar link</button>
+          </div>
+          <p class="hint">O envio é sempre confirmado por você. A ferramenta não faz disparo automático em massa.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="crm">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">MINI CRM LOCAL</div>
+          <h2>Acompanhe quem já foi contatado.</h2>
+          <p>Os dados ficam salvos neste navegador via localStorage. Ideal para a V1 sem backend.</p>
+        </div>
+        <button class="btn ghost" id="exportCrm">Exportar CSV</button>
+      </div>
+      <div class="crm-table-wrap">
+        <table class="crm-table">
+          <thead><tr><th>Empresa</th><th>Nicho</th><th>Solução</th><th>Status</th><th>Data</th><th></th></tr></thead>
+          <tbody id="crmBody"></tbody>
+        </table>
+        <div id="crmEmpty" class="empty">Nenhum lead salvo ainda.</div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div>
+        <div class="eyebrow">WAP CONSULTORIA DIGITAL</div>
+        <h2>Uma necessidade. Uma solução objetiva. Um próximo passo claro.</h2>
+      </div>
+      <a class="btn light" id="footerWhatsapp" href="#">Falar com um consultor</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="brand"><span class="brand-mark">W</span><span><strong>WAP</strong><small>Consultoria Digital</small></span></div>
+    <p>Versão Comercial V1 — estrutura de captação, diagnóstico e prospecção.</p>
+  </footer>
+
+  <div class="modal" id="serviceModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-card">
+      <button class="modal-close" data-close aria-label="Fechar">×</button>
+      <div id="serviceModalContent"></div>
+    </div>
+  </div>
+
+  <div class="modal" id="diagModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-card diag-card">
+      <button class="modal-close" data-close aria-label="Fechar">×</button>
+      <div class="diag-header"><div class="migo-avatar small-avatar"><span>M</span></div><div><div class="migo-label">CONSULTOR MIGO</div><h3 id="diagTitle">Diagnóstico rápido</h3></div></div>
+      <div id="diagContent"></div>
+    </div>
+  </div>
+
+  <a class="floating-wa" id="floatingWhatsapp" href="#" aria-label="WhatsApp">WA</a>
+  <script src="app.js"></script>
+</body>
+</html>
