@@ -1,27 +1,13 @@
-WAP Portfolio Profissional v03
+WAP Portfolio Profissional v06
 
-ARQUIVOS
-- index.html
-- style.css
-- script.js
-- config.js
-- assets/
+Atualizações desta versão:
+- Hero integrado: Consultor Migo à esquerda e Wagner Neto + CTAs à direita em desktop.
+- Consultor Migo transparente com notebook e ícones da stack atual.
+- Tablet mantém composição compacta em duas colunas.
+- Celular exibe o Migo primeiro e o conteúdo logo abaixo.
+- Layout responsivo para celular, tablet, notebook e desktop.
+- Mantidos diagnóstico público, experiência, formação, IA, projetos e formulário de contato.
 
-PUBLICAÇÃO
-Envie a pasta completa para o GitHub Pages ou outra hospedagem estática.
+Abra index.html para testar localmente.
 
-INSTAGRAM
-Edite apenas config.js:
-instagramUrl: "https://instagram.com/SEU_USUARIO"
-instagramLabel: "@SEU_USUARIO"
-
-FORMULÁRIO
-O formulário usa FormSubmit e envia para:
-wagnerapneto1988@gmail.com
-No primeiro envio, o serviço pode solicitar confirmação do e-mail.
-
-LINK PÚBLICO DO CONSULTOR MIGO
-https://wagnerapneto1988-eng.github.io/comercial/
-
-MOTOR COMERCIAL DE DELIVERY
-O portfólio apresenta apenas informações e tecnologias. Não existe link público para o projeto interno.
+Tipografia V06: Poppins (400–900) em todo o layout, com Arial/sans-serif como fallback.
