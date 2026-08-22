@@ -33,7 +33,9 @@ function render(){
   if(!list.length){jobsEl.innerHTML='<div class="empty-list">Nenhuma vaga encontrada.</div>';return;}
   jobsEl.innerHTML=list.map(j=>{
     const tech=String(j.tecnologias||'').split(',').map(x=>x.trim()).filter(Boolean).slice(0,10);
-    const link=j.link_vaga?`<a href="${esc(j.link_vaga)}" target="_blank" rel="noopener">Abrir vaga</a>`:'';
+    const url=String(j.link_vaga||'').trim();
+    const safeUrl=/^https?:\/\//i.test(url)?url:'';
+    const link=safeUrl?`<a class="send-job" href="${esc(safeUrl)}" target="_blank" rel="noopener noreferrer" title="Abrir anúncio e enviar candidatura">Enviar candidatura ↗</a>`:'';
     return `<article class="job-card">
       <div class="job-head"><div class="job-title"><h3>${esc(j.cargo)}</h3><p>${esc(j.empresa)} • ${esc(j.modalidade||'Não informado')} • ${esc(j.localizacao||'')}</p></div><div class="score ${scoreClass(j.compatibilidade)}">${Number(j.compatibilidade||0)}%</div></div>
       <div class="chips">${tech.map(t=>`<span class="chip">${esc(t)}</span>`).join('')}<span class="chip">${esc(j.prioridade||'Media')}</span><span class="chip">${esc(j.status||'Para candidatar')}</span></div>
