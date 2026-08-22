@@ -1,44 +1,27 @@
-WAP_Painel_Vagas_Emprego_v01
+WAP_Painel_Vagas_Emprego_v02
 
-PAINEL SEPARADO EXCLUSIVAMENTE PARA VAGAS DE EMPREGO.
+CORREÇÃO PRINCIPAL
+- O painel antigo consultava vw_painel_vagas_emprego / vagas_emprego.
+- O banco atual possui public.vagas com 20 registros.
+- Esta versão consulta public.vagas diretamente.
+- config-jobs.js já aponta para o projeto Supabase correto.
 
-ARQUIVOS
-- 01_schema_vagas_emprego.sql
-- index.html
-- style.css
-- jobs.js
-- config-jobs.js
-- README.txt
+ANTES DE PUBLICAR
+1. No Supabase > SQL Editor, execute 02_patch_leitura_publica.sql.
+   Isso libera SOMENTE SELECT para anon, necessário porque GitHub Pages é público e não compartilha sua sessão do Supabase Dashboard.
+2. Substitua no GitHub os arquivos do painel por:
+   index.html
+   style.css
+   jobs.js
+   config-jobs.js
+3. Recarregue a página com Ctrl+Shift+R.
 
-INSTALAÇÃO
-1. No Supabase, abra SQL Editor.
-2. Execute 01_schema_vagas_emprego.sql.
-3. Edite config-jobs.js:
-   - SUPABASE_URL
-   - SUPABASE_ANON_KEY
-   - PORTFOLIO_URL
-4. Publique esta pasta separadamente, por exemplo:
-   /comercial/vagas/
-5. Abra index.html já autenticado conforme a configuração do seu projeto.
+SEGURANÇA
+- A chave publishable/anon pode ficar no front-end.
+- O patch libera somente leitura pública das vagas.
+- Escrita continua dependente das policies existentes.
 
-FUNÇÕES DO PAINEL
-- tabela/cards de vagas;
-- filtros por status, prioridade e canal;
-- compatibilidade;
-- salário;
-- stack;
-- origem da publicação;
-- WhatsApp público;
-- Instagram;
-- Facebook;
-- LinkedIn;
-- link da vaga;
-- mensagem automática com portfólio;
-- copiar mensagem;
-- abrir WhatsApp com mensagem pronta;
-- marcar vaga como candidatada;
-- métricas gerais;
-- cadastro manual de vaga.
-
-IMPORTANTE
-Use apenas contatos profissionais ou publicamente divulgados para candidatura.
+RESULTADO ESPERADO
+Total: 20
+Para candidatar: 20
+Lista ordenada por compatibilidade.

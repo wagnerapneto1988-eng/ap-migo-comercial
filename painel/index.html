@@ -9,122 +9,57 @@
 </head>
 <body>
   <aside class="sidebar">
-    <div class="brand">
-      <div class="logo">W</div>
-      <div>
-        <strong>WAP</strong>
-        <span>PAINEL DE VAGAS</span>
-      </div>
-    </div>
-
+    <div class="brand"><span class="brand-mark">W</span><div><strong>WAP</strong><small>PAINEL DE VAGAS</small></div></div>
     <nav>
-      <button class="nav active" data-view="dashboard">▦ Dashboard</button>
-      <button class="nav" data-view="vagas">💼 Todas as vagas</button>
-      <button class="nav" data-view="candidatar">🚀 Para candidatar</button>
-      <button class="nav" data-view="candidatado">✓ Candidatadas</button>
-      <button class="nav" data-view="entrevista">🎯 Entrevistas</button>
+      <button class="nav-item active" data-view="dashboard">▣ Dashboard</button>
+      <button class="nav-item" data-status-view="">▦ Todas as vagas</button>
+      <button class="nav-item" data-status-view="Para candidatar">➤ Para candidatar</button>
+      <button class="nav-item" data-status-view="Candidatado">✓ Candidatadas</button>
+      <button class="nav-item" data-status-view="Entrevista">● Entrevistas</button>
     </nav>
-
-    <div class="sidebar-foot">
-      <span id="sessionStatus">Supabase</span>
-      <button id="refreshBtn">↻ Atualizar</button>
-    </div>
+    <div class="sidebar-footer"><span id="sessionStatus">Conectando...</span><button id="refreshBtn">↻ Atualizar</button></div>
   </aside>
 
   <main class="main">
-    <header class="top">
-      <div>
-        <span class="eyebrow">MOTOR PROFISSIONAL</span>
-        <h1>Vagas de emprego</h1>
-      </div>
-      <button class="primary" id="newJobBtn">+ Nova vaga</button>
-    </header>
+    <header class="topbar"><div><div class="eyebrow">MOTOR PROFISSIONAL</div><h1>Vagas de emprego</h1></div><button id="newJobBtn" class="primary">+ Nova vaga</button></header>
 
     <section class="metrics">
       <article><small>Total</small><strong id="mTotal">0</strong></article>
       <article><small>Para candidatar</small><strong id="mApply">0</strong></article>
-      <article><small>Candidatadas</small><strong id="mSent">0</strong></article>
+      <article><small>Candidatadas</small><strong id="mApplied">0</strong></article>
       <article><small>Entrevistas</small><strong id="mInterview">0</strong></article>
-      <article><small>Média compat.</small><strong id="mScore">0%</strong></article>
+      <article><small>Média compat.</small><strong id="mAvg">0%</strong></article>
     </section>
 
-    <section class="toolbar">
-      <input id="search" type="search" placeholder="Buscar empresa, cargo ou tecnologia...">
-      <select id="statusFilter">
-        <option value="">Todos os status</option>
-        <option>Nova</option>
-        <option>Analisar</option>
-        <option>Candidatar</option>
-        <option>Candidatado</option>
-        <option>Entrevista</option>
-        <option>Teste técnico</option>
-        <option>Proposta</option>
-        <option>Descartada</option>
-        <option>Encerrada</option>
-      </select>
-      <select id="priorityFilter">
-        <option value="">Todas as prioridades</option>
-        <option>Urgente</option>
-        <option>Alta</option>
-        <option>Média</option>
-        <option>Baixa</option>
-      </select>
-      <select id="channelFilter">
-        <option value="">Todos os canais</option>
-        <option value="whatsapp">WhatsApp</option>
-        <option value="instagram">Instagram</option>
-        <option value="facebook">Facebook</option>
-        <option value="linkedin">LinkedIn</option>
-      </select>
+    <section class="filters">
+      <input id="search" placeholder="Buscar empresa, cargo ou tecnologia...">
+      <select id="statusFilter"><option value="">Todos os status</option><option>Para candidatar</option><option>Candidatado</option><option>Entrevista</option><option>Descartada</option><option>Contratado</option></select>
+      <select id="priorityFilter"><option value="">Todas as prioridades</option><option>Alta</option><option>Media</option><option>Baixa</option></select>
+      <select id="channelFilter"><option value="">Todos os canais</option><option>LinkedIn</option><option>Gupy</option><option>Indeed</option><option>InfoJobs</option><option>Outro</option></select>
     </section>
 
-    <section class="jobs" id="jobs">
-      <div class="loading">Carregando vagas...</div>
-    </section>
+    <section id="jobs" class="jobs"><div class="loading">Carregando vagas...</div></section>
   </main>
 
   <dialog id="jobDialog">
-    <form id="jobForm">
-      <div class="dialog-head">
-        <div><small>NOVA OPORTUNIDADE</small><h2>Cadastrar vaga</h2></div>
-        <button type="button" class="icon" id="closeDialog">✕</button>
-      </div>
-
+    <form id="jobForm" method="dialog">
+      <header><h2>Nova vaga</h2><button type="button" id="closeDialog">×</button></header>
       <div class="form-grid">
         <label>Empresa<input name="empresa" required></label>
         <label>Cargo<input name="cargo" required></label>
-        <label>Modalidade
-          <select name="modalidade"><option>Remoto</option><option>Híbrido</option><option>Presencial</option></select>
-        </label>
-        <label>Regime
-          <select name="regime"><option value="">Não informado</option><option>CLT</option><option>PJ</option><option>Freelancer</option><option>Estágio</option><option>Temporário</option><option>Outro</option></select>
-        </label>
-        <label>Senioridade
-          <select name="senioridade"><option>Não informado</option><option>Júnior</option><option>Pleno</option><option>Sênior</option><option>Especialista</option></select>
-        </label>
+        <label>Tecnologias<input name="tecnologias" placeholder="PHP, JavaScript, MySQL"></label>
+        <label>Modalidade<input name="modalidade" value="Remoto"></label>
+        <label>Localização<input name="localizacao" value="Brasil"></label>
+        <label>Salário<input name="salario"></label>
+        <label>Fonte<input name="fonte" value="LinkedIn"></label>
+        <label>Link da vaga<input name="link_vaga" type="url"></label>
         <label>Compatibilidade<input name="compatibilidade" type="number" min="0" max="100" value="80"></label>
-        <label>Prioridade
-          <select name="prioridade"><option>Alta</option><option>Urgente</option><option>Média</option><option>Baixa</option></select>
-        </label>
-        <label>Status
-          <select name="status"><option>Nova</option><option>Analisar</option><option>Candidatar</option><option>Candidatado</option><option>Entrevista</option><option>Teste técnico</option><option>Proposta</option></select>
-        </label>
-        <label>Salário mínimo<input name="salario_min" type="number" step="0.01"></label>
-        <label>Salário máximo<input name="salario_max" type="number" step="0.01"></label>
-        <label class="wide">Stack <input name="stack" placeholder="PHP, JavaScript, MySQL, Moodle"></label>
-        <label class="wide">Onde divulgou<input name="origem_nome" placeholder="LinkedIn, Gupy, site da empresa..."></label>
-        <label class="wide">Link da vaga<input name="origem_url" type="url" placeholder="https://..."></label>
-        <label>WhatsApp público<input name="whatsapp" placeholder="5511999999999"></label>
-        <label>Instagram<input name="instagram" placeholder="https://instagram.com/..."></label>
-        <label>Facebook<input name="facebook" placeholder="https://facebook.com/..."></label>
-        <label>LinkedIn<input name="linkedin" placeholder="https://linkedin.com/..."></label>
-        <label class="wide">Observações<textarea name="observacoes"></textarea></label>
+        <label>Prioridade<select name="prioridade"><option>Alta</option><option selected>Media</option><option>Baixa</option></select></label>
+        <label class="full">Descrição<textarea name="descricao"></textarea></label>
+        <label class="full">Observações<textarea name="observacoes"></textarea></label>
       </div>
-
-      <div class="dialog-actions">
-        <span id="formMessage"></span>
-        <button type="submit" class="primary">Salvar vaga</button>
-      </div>
+      <p id="formMessage"></p>
+      <footer><button type="button" id="cancelDialog">Cancelar</button><button class="primary" type="submit">Salvar vaga</button></footer>
     </form>
   </dialog>
 
