@@ -1,1 +1,135 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#07111c">
+  <title>WAP — Painel de Vagas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="logo">W</div>
+      <div>
+        <strong>WAP</strong>
+        <span>PAINEL DE VAGAS</span>
+      </div>
+    </div>
 
+    <nav>
+      <button class="nav active" data-view="dashboard">▦ Dashboard</button>
+      <button class="nav" data-view="vagas">💼 Todas as vagas</button>
+      <button class="nav" data-view="candidatar">🚀 Para candidatar</button>
+      <button class="nav" data-view="candidatado">✓ Candidatadas</button>
+      <button class="nav" data-view="entrevista">🎯 Entrevistas</button>
+    </nav>
+
+    <div class="sidebar-foot">
+      <span id="sessionStatus">Supabase</span>
+      <button id="refreshBtn">↻ Atualizar</button>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="top">
+      <div>
+        <span class="eyebrow">MOTOR PROFISSIONAL</span>
+        <h1>Vagas de emprego</h1>
+      </div>
+      <button class="primary" id="newJobBtn">+ Nova vaga</button>
+    </header>
+
+    <section class="metrics">
+      <article><small>Total</small><strong id="mTotal">0</strong></article>
+      <article><small>Para candidatar</small><strong id="mApply">0</strong></article>
+      <article><small>Candidatadas</small><strong id="mSent">0</strong></article>
+      <article><small>Entrevistas</small><strong id="mInterview">0</strong></article>
+      <article><small>Média compat.</small><strong id="mScore">0%</strong></article>
+    </section>
+
+    <section class="toolbar">
+      <input id="search" type="search" placeholder="Buscar empresa, cargo ou tecnologia...">
+      <select id="statusFilter">
+        <option value="">Todos os status</option>
+        <option>Nova</option>
+        <option>Analisar</option>
+        <option>Candidatar</option>
+        <option>Candidatado</option>
+        <option>Entrevista</option>
+        <option>Teste técnico</option>
+        <option>Proposta</option>
+        <option>Descartada</option>
+        <option>Encerrada</option>
+      </select>
+      <select id="priorityFilter">
+        <option value="">Todas as prioridades</option>
+        <option>Urgente</option>
+        <option>Alta</option>
+        <option>Média</option>
+        <option>Baixa</option>
+      </select>
+      <select id="channelFilter">
+        <option value="">Todos os canais</option>
+        <option value="whatsapp">WhatsApp</option>
+        <option value="instagram">Instagram</option>
+        <option value="facebook">Facebook</option>
+        <option value="linkedin">LinkedIn</option>
+      </select>
+    </section>
+
+    <section class="jobs" id="jobs">
+      <div class="loading">Carregando vagas...</div>
+    </section>
+  </main>
+
+  <dialog id="jobDialog">
+    <form id="jobForm">
+      <div class="dialog-head">
+        <div><small>NOVA OPORTUNIDADE</small><h2>Cadastrar vaga</h2></div>
+        <button type="button" class="icon" id="closeDialog">✕</button>
+      </div>
+
+      <div class="form-grid">
+        <label>Empresa<input name="empresa" required></label>
+        <label>Cargo<input name="cargo" required></label>
+        <label>Modalidade
+          <select name="modalidade"><option>Remoto</option><option>Híbrido</option><option>Presencial</option></select>
+        </label>
+        <label>Regime
+          <select name="regime"><option value="">Não informado</option><option>CLT</option><option>PJ</option><option>Freelancer</option><option>Estágio</option><option>Temporário</option><option>Outro</option></select>
+        </label>
+        <label>Senioridade
+          <select name="senioridade"><option>Não informado</option><option>Júnior</option><option>Pleno</option><option>Sênior</option><option>Especialista</option></select>
+        </label>
+        <label>Compatibilidade<input name="compatibilidade" type="number" min="0" max="100" value="80"></label>
+        <label>Prioridade
+          <select name="prioridade"><option>Alta</option><option>Urgente</option><option>Média</option><option>Baixa</option></select>
+        </label>
+        <label>Status
+          <select name="status"><option>Nova</option><option>Analisar</option><option>Candidatar</option><option>Candidatado</option><option>Entrevista</option><option>Teste técnico</option><option>Proposta</option></select>
+        </label>
+        <label>Salário mínimo<input name="salario_min" type="number" step="0.01"></label>
+        <label>Salário máximo<input name="salario_max" type="number" step="0.01"></label>
+        <label class="wide">Stack <input name="stack" placeholder="PHP, JavaScript, MySQL, Moodle"></label>
+        <label class="wide">Onde divulgou<input name="origem_nome" placeholder="LinkedIn, Gupy, site da empresa..."></label>
+        <label class="wide">Link da vaga<input name="origem_url" type="url" placeholder="https://..."></label>
+        <label>WhatsApp público<input name="whatsapp" placeholder="5511999999999"></label>
+        <label>Instagram<input name="instagram" placeholder="https://instagram.com/..."></label>
+        <label>Facebook<input name="facebook" placeholder="https://facebook.com/..."></label>
+        <label>LinkedIn<input name="linkedin" placeholder="https://linkedin.com/..."></label>
+        <label class="wide">Observações<textarea name="observacoes"></textarea></label>
+      </div>
+
+      <div class="dialog-actions">
+        <span id="formMessage"></span>
+        <button type="submit" class="primary">Salvar vaga</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config-jobs.js"></script>
+  <script src="jobs.js"></script>
+</body>
+</html>
