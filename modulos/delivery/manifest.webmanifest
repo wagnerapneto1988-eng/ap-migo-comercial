@@ -1,0 +1,8 @@
+{
+  "name": "WAP Delivery Experience — Pizzaria",
+  "short_name": "WAP Delivery",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#050706",
+  "theme_color": "#070907"
+}

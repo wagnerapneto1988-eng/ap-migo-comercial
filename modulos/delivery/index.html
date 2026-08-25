@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#070907">
+  <title>WAP Delivery Experience | Pizzaria</title>
+  <meta name="description" content="Modelo funcional de pizzaria em JavaScript com cardápio, carrinho, monte sua pizza, rastreamento e WhatsApp.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="top-glow"></div>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="mark">◩</span>
+    <div>WAP <small>DELIVERY EXPERIENCE</small></div>
+  </div>
+
+  <nav aria-label="Navegação principal">
+    <button data-scroll="home" title="Início">⌂</button>
+    <button data-scroll="menu" title="Cardápio">🍕</button>
+    <button data-scroll="builder" title="Monte sua pizza">◉</button>
+    <button data-scroll="track" title="Acompanhe seu pedido">⌖</button>
+  </nav>
+
+  <div class="status">
+    <span>🚚 <b id="deliveryTime">30–45 min</b></span>
+    <span>◷ até <b id="openUntil">23:30</b></span>
+  </div>
+</header>
+
+<aside class="sidebar">
+  <div class="restaurant">
+    <div class="pizza-neon">🍕</div>
+    <small>PIZZARIA</small>
+    <h2 id="restaurantName">Sabor & Arte</h2>
+    <span id="restaurantSince">Desde 2015</span>
+  </div>
+
+  <div class="side-links">
+    <button data-scroll="home">⌂ <span>Início</span></button>
+    <button data-scroll="menu">▤ <span>Cardápio</span></button>
+    <button data-scroll="builder">◉ <span>Monte sua Pizza</span></button>
+    <button data-filter="promocoes">🏷 <span>Promoções</span></button>
+    <button data-filter="bebidas">🥤 <span>Bebidas</span></button>
+    <button data-scroll="track">⌖ <span>Acompanhar Pedido</span></button>
+    <button id="openContact">◯ <span>Fale Conosco</span></button>
+  </div>
+
+  <div class="migo-help">
+    <div class="migo">👨‍💼</div>
+    <b>Dúvidas?</b>
+    <small>Fale com o Migo!</small>
+    <button id="migoWhatsapp">WhatsApp</button>
+  </div>
+</aside>
+
+<main>
+  <section id="home" class="hero">
+    <div class="hero-bg"></div>
+
+    <div class="hero-copy">
+      <label>PIZZA QUENTE • ENTREGA RÁPIDA</label>
+      <h1 id="heroTitle">Pizza quente.<br>Momentos <strong>incríveis.</strong></h1>
+      <p>Ingredientes selecionados, massa artesanal e muito sabor.</p>
+
+      <div class="hero-badges">
+        <span>🌿 Ingredientes</span>
+        <span>🥖 Massa artesanal</span>
+        <span>🛵 Entrega rápida</span>
+      </div>
+
+      <div class="hero-actions">
+        <button data-scroll="builder" class="primary">🍕 Monte sua pizza</button>
+        <button data-scroll="menu">▤ Ver cardápio</button>
+      </div>
+    </div>
+
+    <div class="hero-food" aria-hidden="true">
+      <div class="steam s1"></div>
+      <div class="steam s2"></div>
+      <div class="steam s3"></div>
+    </div>
+  </section>
+
+  <section class="categories" id="menu">
+    <div class="section-title">
+      <div>
+        <label>ESCOLHA PELO DESEJO</label>
+        <h2>Cardápio visual</h2>
+      </div>
+      <button data-filter="all">Ver tudo</button>
+    </div>
+
+    <div class="category-icons" aria-label="Categorias">
+      <button class="active" data-filter="all">🍕<span>Todos</span></button>
+      <button data-filter="tradicionais">🔥<span>Tradicionais</span></button>
+      <button data-filter="especiais">✨<span>Especiais</span></button>
+      <button data-filter="doces">🍰<span>Doces</span></button>
+      <button data-filter="veganas">🌿<span>Veganas</span></button>
+      <button data-filter="bebidas">🥤<span>Bebidas</span></button>
+    </div>
+
+    <div id="productsGrid" class="products"></div>
+  </section>
+
+  <section id="builder" class="builder">
+    <div class="builder-visual">
+      <div class="pizza-build" id="pizzaBuild">🍕</div>
+      <div class="steam s1"></div>
+      <div class="steam s2"></div>
+    </div>
+
+    <div class="builder-panel">
+      <label>MONTE DO SEU JEITO</label>
+      <h2>Sua pizza. <strong>Suas escolhas.</strong></h2>
+
+      <div class="builder-options">
+        <div>
+          <b>Tamanho</b>
+          <button data-size="39.9">P</button>
+          <button data-size="49.9">M</button>
+          <button data-size="59.9" class="selected">G</button>
+        </div>
+        <div>
+          <b>Massa</b>
+          <button data-dough="Tradicional" class="selected">Tradicional</button>
+          <button data-dough="Fina">Fina</button>
+        </div>
+        <div>
+          <b>Extras</b>
+          <button data-extra="5">+ Queijo</button>
+          <button data-extra="6">+ Bacon</button>
+          <button data-extra="4">+ Catupiry</button>
+        </div>
+      </div>
+
+      <div class="builder-total">A partir de <strong id="builderPrice">R$ 59,90</strong></div>
+      <button class="primary" id="addCustom">Adicionar ao pedido</button>
+    </div>
+  </section>
+
+  <section id="track" class="tracking">
+    <div>
+      <label>ACOMPANHE SEU PEDIDO</label>
+      <h2>Da cozinha até você.</h2>
+      <p id="trackingText">Pedido ainda não finalizado.</p>
+      <button id="simulateTracking">Simular andamento</button>
+    </div>
+
+    <div class="track-line" id="trackLine">
+      <span class="done">✓<small>Recebido</small></span>
+      <i></i>
+      <span>🔥<small>Forno</small></span>
+      <i></i>
+      <span>🛵<small>Entrega</small></span>
+      <i></i>
+      <span>🏠<small>Chegou</small></span>
+    </div>
+  </section>
+</main>
+
+<aside class="cart" aria-label="Carrinho">
+  <div class="cart-head">
+    <h3>MEU PEDIDO <b id="cartCount">0</b></h3>
+    <button id="clearCart">Limpar</button>
+  </div>
+
+  <div id="cartItems" class="cart-items"></div>
+
+  <div class="coupon">
+    <input id="coupon" placeholder="Cupom">
+    <button id="applyCoupon">Aplicar</button>
+  </div>
+
+  <div class="totals">
+    <span>Subtotal <b id="subtotal">R$ 0,00</b></span>
+    <span>Entrega <b id="deliveryFee">R$ 6,00</b></span>
+    <strong>TOTAL <b id="total">R$ 0,00</b></strong>
+  </div>
+
+  <button id="checkout" class="checkout">◉ FINALIZAR NO WHATSAPP</button>
+  <small class="secure">🔒 Ambiente demonstrativo</small>
+</aside>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<div id="modal" class="modal" aria-hidden="true">
+  <div class="modal-card">
+    <button id="closeModal" aria-label="Fechar">×</button>
+    <div class="cold-scene" aria-hidden="true">
+      🥤
+      <span class="bubble b1"></span>
+      <span class="bubble b2"></span>
+      <span class="bubble b3"></span>
+      <i>❄</i>
+    </div>
+    <h2>Fale com o Migo</h2>
+    <p>Quer adaptar este delivery para sua pizzaria?</p>
+    <button id="modalWhatsapp" class="primary">Abrir WhatsApp</button>
+  </div>
+</div>
+
+<footer>WAP Delivery Experience • JavaScript puro • modelo demonstrativo</footer>
+
+<script src="config.js"></script>
+<script src="products.js"></script>
+<script src="script.js"></script>
+
+<script src="../../config.js"></script>
+<script src="../../module-contact.js"></script>
+</body>
+</html>
