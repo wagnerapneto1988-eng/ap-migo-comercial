@@ -1,0 +1,11 @@
+V24 VISUAL FIX
+- CSS refeito novamente como camada única, sem media queries cumulativas.
+- Tela interna deixa de parecer painel administrativo azul.
+- Fundo tecnológico escuro com profundidade, seguindo referência aprovada.
+- Ícones das respostas são SVG inline gerados pelo JavaScript.
+- Ícones do relatório também são SVG inline.
+- Cards da pergunta usam espaço útil sem vazio vertical exagerado.
+- Painel Sua Jornada permanece fixo.
+- HUD e redes sociais permanecem visíveis.
+- Demo Delivery usa fotografia limpa de pizza, evitando texto duplicado da imagem hero.
+- Lógica funcional da V24/V22 preservada.

@@ -1,241 +1,194 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#031329">
-  <meta name="description" content="Portfólio profissional de Wagner Neto — Desenvolvimento Web, Automação, IA e Consultoria Digital.">
-  <title>Wagner Neto | Desenvolvimento Web, Automação e IA</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#020817">
+<title>WAP — Experiência Inteligente</title>
+<meta name="description" content="Diagnóstico interativo WAP: cenário, prioridades, demonstração e contato.">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="page-glow glow-a"></div>
-  <div class="page-glow glow-b"></div>
+<main id="app" class="app" data-view="intro" data-family="unknown">
 
-  <header class="topbar">
-    <a href="#inicio" class="brand" aria-label="WAP Consultoria Digital">
-      <img src="assets/logo-wap.jpg" alt="WAP Consultoria Digital">
-      <span>WAP <b>Consultoria Digital</b></span>
-    </a>
-    <nav aria-label="Navegação principal">
-      <a href="#perfil">Perfil</a>
-      <a href="#experiencia">Experiência</a>
-      <a href="#projetos">Projetos</a>
-      <a href="#contato">Contato</a>
-    </nav>
-    <a class="top-cta" href="#contato">Falar comigo</a>
-  </header>
+  <!-- TELA 1 — REFERÊNCIA VISUAL APROVADA -->
+  <section id="intro" class="view intro-view active" aria-label="Início">
+    <div class="intro-image" aria-hidden="true"></div>
+    <div class="intro-light-control" aria-hidden="true"></div>
+    <button id="startBtn" class="play-target" type="button" aria-label="Iniciar diagnóstico">
+      <span>Iniciar diagnóstico</span>
+    </button>
+  </section>
 
-  <main>
-    <section id="inicio" class="hero shell">
-      <div class="hero-character reveal">
-        <div class="character-halo"></div>
-        <img src="assets/consultor-migo-stack.png" alt="Consultor Migo com notebook e ícones das tecnologias utilizadas" class="migo-main">
+  <!-- SHELL ÚNICO DO JOGO. A GEOMETRIA NÃO MUDA ENTRE ESTADOS -->
+  <section id="gameView" class="view game-view">
+    <div class="game-bg" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <div class="brand">
+        <img src="assets/logo-wap.png" alt="WAP Consultoria Digital">
+        <span class="brand-line"></span>
+        <div class="brand-copy"><span>Sua jornada digital</span><b>começa aqui.</b></div>
       </div>
+      <nav class="topnav" aria-label="Navegação WAP">
+        <button type="button" data-home aria-label="Início"><svg viewBox="0 0 24 24"><path d="M3 11 12 3l9 8v9a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg><small>Início</small></button>
+        <button type="button" aria-label="Serviços"><svg viewBox="0 0 24 24"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9zm0 0v9m8-4.5-8 4.5-8-4.5"/></svg><small>Serviços</small></button>
+        <button type="button" aria-label="Resultados"><svg viewBox="0 0 24 24"><path d="M5 20V9m7 11V4m7 16v-7"/></svg><small>Resultados</small></button>
+        <button type="button" data-contact aria-label="Contato"><svg viewBox="0 0 24 24"><path d="M5 5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7l-4 4v-4H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/></svg><small>Contato</small></button>
+      </nav>
+    </header>
 
-      <div class="hero-content reveal delay-1">
-        <div class="logo-pill"><span class="dot"></span> WAP CONSULTORIA DIGITAL</div>
-        <p class="kicker">DESENVOLVIMENTO WEB • AUTOMAÇÃO • INTELIGÊNCIA ARTIFICIAL</p>
-        <h1>Wagner<br><span>Neto</span></h1>
-        <p class="hero-subtitle">Desenvolvedor Web • Consultor de Tecnologia • Soluções Digitais</p>
-        <p class="hero-text">Projetos web, plataformas, automações e IA com foco em clareza, escala e aplicação prática.</p>
+    <div class="stage">
+      <!-- ÁREA PRINCIPAL - apenas o conteúdo muda -->
+      <section class="main-panel">
 
-        <div class="hero-actions">
-          <a class="neon-card orange" href="#experiencia">
-            <span class="icon">⚡</span>
-            <span><b>CONHEÇA MINHA EXPERIÊNCIA</b><small>Projetos, formação e competências.</small></span>
-            <i>›</i>
-          </a>
-          <a class="neon-card blue" href="https://wagnerapneto1988-eng.github.io/comercial/" target="_blank" rel="noopener">
-            <span class="icon">📋</span>
-            <span><b>TESTE O CONSULTOR MIGO</b><small>Diagnóstico digital interativo.</small></span>
-            <i>›</i>
-          </a>
-          <a class="neon-card green" href="#contato">
-            <span class="icon">✉</span>
-            <span><b>FALE COMIGO</b><small>Contato profissional direto.</small></span>
-            <i>›</i>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="impact-strip shell reveal" aria-label="Destaques profissionais">
-      <article><strong>25 MIL+</strong><span>agentes em projeto EAD</span></article>
-      <article><strong>~5 MIL</strong><span>acessos simultâneos em pico</span></article>
-      <article><strong>20+</strong><span>cursos profissionalizantes</span></article>
-      <article><strong>2012</strong><span>formação em Mídias Digitais</span></article>
-    </section>
-
-    <section id="perfil" class="section shell">
-      <div class="section-title reveal">
-        <p>PERFIL PROFISSIONAL</p>
-        <h2>Tecnologia com visão de produto e execução.</h2>
-        <span>Experiência em desenvolvimento web, infraestrutura, plataformas educacionais, suporte, automação e soluções digitais.</span>
-      </div>
-
-      <div class="profile-grid">
-        <article class="glass-card profile-main reveal">
-          <span class="card-label">SOBRE</span>
-          <h3>Desenvolvimento Web & Consultoria de Tecnologia</h3>
-          <p>Atuação em HTML, CSS, JavaScript, PHP, MySQL, Linux, Moodle, WordPress, Supabase, APIs e Git/GitHub.</p>
-          <p>Combino análise, código, experiência do usuário e visão comercial para criar soluções objetivas e funcionais.</p>
-          <div class="skill-chips">
-            <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>PHP</span><span>MySQL</span><span>Linux</span><span>Moodle</span><span>Supabase</span><span>APIs</span><span>Git/GitHub</span>
+        <article id="questionScreen" class="screen active" data-screen="question">
+          <div class="question-progress"><b id="qNumber">1</b><div id="qDots"></div></div>
+          <span class="eyebrow">DIAGNÓSTICO</span>
+          <h1 id="questionTitle">Qual é o principal objetivo do seu negócio hoje?</h1>
+          <p id="questionHint" class="screen-help"></p>
+          <div id="choices" class="choices"></div>
+          <div class="screen-nav">
+            <button id="questionBack" class="btn secondary" type="button">← Voltar</button>
+            <span class="screen-status" id="questionStatus">Escolha uma opção</span>
+            <button id="questionNext" class="btn primary" type="button" disabled>Avançar →</button>
           </div>
         </article>
 
-        <article class="glass-card identity-card reveal delay-1">
-          <img src="assets/migo-selo.png" alt="Identidade visual do Consultor Migo">
-          <div>
-            <span class="card-label">IDENTIDADE PROFISSIONAL</span>
-            <h3>Professor Migo</h3>
-            <p>Personagem criado para apresentar tecnologia com linguagem simples, visual clara e foco em experiência.</p>
+        <article id="resultScreen" class="screen" data-screen="result">
+          <span class="eyebrow">SEU DIAGNÓSTICO</span>
+          <h1>Aqui está a <em>leitura do seu cenário</em></h1>
+          <div id="signals" class="signal-layout"></div>
+          <div class="recommendation">
+            <span class="rec-icon">◎</span>
+            <div><b>RECOMENDAÇÃO WAP</b><p id="recommendationText">Primeiro clareza. Depois tecnologia.</p></div>
           </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="experiencia" class="section shell">
-      <div class="section-title reveal">
-        <p>EXPERIÊNCIA PROFISSIONAL</p>
-        <h2>Projetos com escala, prazo e responsabilidade.</h2>
-      </div>
-
-      <div class="experience-grid">
-        <article class="experience featured reveal">
-          <div class="exp-head"><span>DESTAQUE</span><b>Trend Operadora</b></div>
-          <h3>Plataforma EAD Moodle em grande escala</h3>
-          <p>Implantação técnica de ambiente de ensino a distância para mais de 25 mil agentes. Estrutura em servidor dedicado, administração Moodle, suporte e estabilidade.</p>
-          <div class="metrics">
-            <div><strong>25.000+</strong><span>agentes</span></div>
-            <div><strong>~5.000</strong><span>acessos em pico</span></div>
-            <div><strong>~7 dias</strong><span>implantação inicial</span></div>
+          <div class="screen-nav">
+            <button class="btn secondary" data-back="question" type="button">← Voltar</button>
+            <span class="screen-status">Leitura concluída</span>
+            <button id="toDemo" class="btn primary" type="button">Avançar →</button>
           </div>
         </article>
 
-        <article class="experience reveal delay-1">
-          <div class="exp-head"><span>WEB</span><b>ASF Cursos</b></div>
-          <h3>Desenvolvimento e suporte</h3>
-          <p>Soluções web, manutenção, apoio técnico e evolução de recursos digitais.</p>
-        </article>
+        <article id="demoScreen" class="screen" data-screen="demo">
+          <span class="eyebrow">DEMONSTRAÇÃO PERSONALIZADA</span>
+          <h1 id="demoHeading"><em>Modelo funcional</em></h1>
+          <p id="demoSub" class="screen-help centered"></p>
 
-        <article class="experience reveal delay-2">
-          <div class="exp-head"><span>PROJETOS</span><b>Atuação independente</b></div>
-          <h3>Sites, sistemas e automação</h3>
-          <p>Landing pages, sistemas administrativos, integrações, diagnóstico digital, automação comercial e suporte técnico.</p>
-        </article>
-      </div>
-    </section>
+          <div id="demoProduct" class="demo-product"></div>
 
-    <section class="section shell education">
-      <article class="education-card reveal">
-        <span class="education-icon">🎓</span>
-        <div><p>FORMAÇÃO</p><h3>Design de Mídias Digitais</h3><span>Faculdade Impacta de Tecnologia • Conclusão em 2012</span></div>
-      </article>
-      <article class="education-card reveal delay-1">
-        <span class="education-icon">🏅</span>
-        <div><p>APERFEIÇOAMENTO</p><h3>Mais de 20 cursos profissionalizantes</h3><span>Web, hardware, redes, Linux, suporte, marketing digital e tecnologias complementares.</span></div>
-      </article>
-    </section>
+          <div id="demoFeatures" class="demo-features"></div>
 
-    <section class="section shell ai-section">
-      <div class="section-title reveal">
-        <p>INTELIGÊNCIA ARTIFICIAL</p>
-        <h2>IA aplicada ao desenvolvimento e à estratégia.</h2>
-        <span>Uso de IA para análise, arquitetura, código, documentação, automação e validação de produto.</span>
-      </div>
-      <div class="ai-flow reveal delay-1">
-        <article><b>01</b><strong>Análise</strong><span>Leitura de cenário e prioridades.</span></article>
-        <i>→</i>
-        <article><b>02</b><strong>Arquitetura</strong><span>Estrutura técnica e decisões de produto.</span></article>
-        <i>→</i>
-        <article><b>03</b><strong>Automação</strong><span>Fluxos, dados e integrações.</span></article>
-        <i>→</i>
-        <article><b>04</b><strong>Entrega</strong><span>Solução clara, testável e evolutiva.</span></article>
-      </div>
-    </section>
-
-    <section id="projetos" class="section shell projects">
-      <div class="section-title reveal">
-        <p>PROJETOS ATUAIS</p>
-        <h2>Produtos próprios com aplicação comercial.</h2>
-      </div>
-
-      <div class="project-grid">
-        <article class="project-card public reveal">
-          <div class="project-image"><img src="assets/migo-diagnostico.png" alt="Consultor Migo em diagnóstico digital"></div>
-          <div class="project-content">
-            <div class="status public-status">ACESSO PÚBLICO</div>
-            <h3>Consultor Migo</h3>
-            <p>Diagnóstico digital interativo. O fluxo coleta respostas, identifica prioridades e apresenta recomendações com linguagem simples.</p>
-            <div class="project-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Supabase</span><span>UX</span></div>
-            <a href="https://wagnerapneto1988-eng.github.io/comercial/" target="_blank" rel="noopener">ABRIR DIAGNÓSTICO <b>→</b></a>
+          <div class="screen-nav">
+            <button class="btn secondary" data-back="result" type="button">← Voltar</button>
+            <span class="screen-status">Explore a solução indicada</span>
+            <button id="toPlan" class="btn primary" type="button">Avançar →</button>
           </div>
         </article>
 
-        <article class="project-card private reveal delay-1">
-          <div class="project-content full">
-            <div class="status private-status">PROJETO INTERNO</div>
-            <h3>Motor Comercial de Propostas para Delivery</h3>
-            <p>Sistema de automação comercial com análise de potenciais clientes, diagnóstico, proposta personalizada, demonstração de delivery e gestão de oportunidades.</p>
-            <div class="automation-map">
-              <span>Pesquisa</span><i>→</i><span>Análise</span><i>→</i><span>Proposta</span><i>→</i><span>Demo</span><i>→</i><span>CRM</span>
+        <article id="planScreen" class="screen" data-screen="plan">
+          <span class="eyebrow">PLANO DE AÇÃO</span>
+          <h1>Seu cenário, prioridade e <em>próximo caminho</em></h1>
+          <div class="plan-grid">
+            <section><small>SEGMENTO</small><h2 id="planSegment">—</h2><p id="planSegmentText">—</p></section>
+            <section><small>PRIORIDADE</small><h2 id="planPriority">—</h2><p id="planPriorityText">—</p></section>
+            <section class="wide"><small>PRÓXIMO CAMINHO</small><h2 id="planNext">—</h2><p id="planNextText">—</p></section>
+          </div>
+          <div class="plan-actions">
+            <a id="openModel" class="model-cta" href="#">
+              <span class="model-cta-icon" id="modelIcon">▶</span>
+              <span><b id="modelTitle">Ver demonstração funcional</b><small>O retorno para a WAP continua disponível.</small></span>
+              <strong>↗</strong>
+            </a>
+          </div>
+          <div class="screen-nav">
+            <button class="btn secondary" data-back="demo" type="button">← Voltar</button>
+            <span class="screen-status">Próximo: contato</span>
+            <button id="toContact" class="btn primary" type="button">Avançar →</button>
+          </div>
+        </article>
+
+        <article id="contactScreen" class="screen" data-screen="contact">
+          <span class="eyebrow">CONTATO</span>
+          <h1>Continue <em>exatamente de onde parou</em></h1>
+          <p class="contact-lead">Seu segmento, respostas e prioridade já estão registrados nesta jornada.</p>
+          <div class="contact-grid">
+            <button id="waContact" class="contact-card wa" type="button">
+              <span class="contact-symbol">✆</span><div><b>Fale com a WAP</b><small>Contato provisório enquanto ativamos o WhatsApp</small></div><strong>→</strong>
+            </button>
+            <a id="igContact" class="contact-card ig" href="#" target="_blank">
+              <span class="contact-symbol">◎</span><div><b>Instagram</b><small>Conhecer a WAP</small></div><strong>→</strong>
+            </a>
+            <a id="fbContact" class="contact-card fb" href="#" target="_blank">
+              <span class="contact-symbol">f</span><div><b>Facebook</b><small>Conhecer a WAP</small></div><strong>→</strong>
+            </a>
+          </div>
+
+          <form id="leadForm" class="lead-form" hidden>
+            <div class="lead-form-head"><div><span class="eyebrow">CONTATO WAP</span><h2>Deixe seu contato</h2><p>O WhatsApp está em ativação. Sua mensagem será preparada para envio por e-mail.</p></div><button id="closeLeadForm" type="button" aria-label="Fechar formulário">×</button></div>
+            <div class="lead-fields">
+              <label>Nome<input id="leadName" name="name" required autocomplete="name" placeholder="Seu nome"></label>
+              <label>WhatsApp / telefone<input id="leadPhone" name="phone" autocomplete="tel" placeholder="(11) 99999-9999"></label>
+              <label>E-mail<input id="leadEmail" name="email" type="email" autocomplete="email" placeholder="voce@email.com"></label>
+              <label class="wide">Como podemos ajudar?<textarea id="leadMessage" name="message" required rows="3" placeholder="Conte rapidamente o que você procura"></textarea></label>
             </div>
-            <div class="project-tags"><span>JavaScript</span><span>Supabase</span><span>SQL</span><span>IA</span><span>Automação</span><span>APIs</span></div>
-            <small>Projeto em desenvolvimento. Sem acesso público.</small>
+            <div class="lead-actions"><small>Canal provisório até a ativação do WhatsApp.</small><button class="btn primary" type="submit">Enviar contato →</button></div>
+          </form>
+          <div class="contact-summary" id="contactSummary"></div>
+          <div class="screen-nav">
+            <button class="btn secondary" data-back="plan" type="button">← Voltar</button>
+            <span class="screen-status">Jornada concluída</span>
+            <button id="restart" class="btn primary" type="button">Recomeçar</button>
           </div>
         </article>
-      </div>
-    </section>
+      </section>
 
-    <section class="section shell stack">
-      <div class="section-title reveal"><p>COMPETÊNCIAS</p><h2>Stack técnica.</h2></div>
-      <div class="stack-cloud reveal delay-1">
-        <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>PHP</span><span>MySQL</span><span>SQL</span><span>Supabase</span><span>Linux</span><span>Moodle</span><span>WordPress</span><span>Git</span><span>GitHub</span><span>APIs</span><span>UX/UI</span><span>SEO</span><span>IA aplicada</span><span>Automação</span><span>Suporte técnico</span>
-      </div>
-    </section>
-
-    <section id="contato" class="section shell contact">
-      <div class="contact-copy reveal">
-        <p class="kicker">CONTATO PROFISSIONAL</p>
-        <h2>Desenvolvimento, tecnologia e automação.</h2>
-        <span>Envie sua mensagem. Resposta direta por e-mail.</span>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/wagner-pereto-a09453415" target="_blank" rel="noopener">LinkedIn ↗</a>
-          <a id="instagramLink" href="#">Instagram — adicionar @</a>
-          <a href="mailto:wagnerapneto1988@gmail.com">E-mail ↗</a>
+      <!-- SUA JORNADA - SEMPRE VISÍVEL -->
+      <aside class="journey-panel">
+        <span class="eyebrow">SUA JORNADA</span>
+        <div class="journey-progress">
+          <div class="progress-ring" id="progressRing"><b id="progressPercent">20%</b></div>
+          <div><span>Progresso do diagnóstico</span><strong id="progressLabel">1 de 6 etapas</strong></div>
         </div>
+        <h3 id="journeyHeading">O QUE VEM POR AÍ</h3>
+        <ol id="journeySteps">
+          <li data-step="1"><b>1</b><span>Entender seu cenário<small>Perguntas inteligentes</small></span></li>
+          <li data-step="2"><b>2</b><span>Leitura estratégica</span></li>
+          <li data-step="3"><b>3</b><span>Resultado e prioridades</span></li>
+          <li data-step="4"><b>4</b><span>Demonstração personalizada</span></li>
+          <li data-step="5"><b>5</b><span>Plano de ação</span></li>
+          <li data-step="6"><b>6</b><span>Contato</span></li>
+        </ol>
+        <div class="journey-tip">
+          <span>💡</span>
+          <div><b>DICA DO CONSULTOR</b><p id="journeyTip">Responda com sinceridade para receber uma leitura útil.</p></div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- HUD INFERIOR - SEMPRE VISÍVEL -->
+    <footer class="hud">
+      <div class="hud-flow">
+        <button data-jump="question"><b>1</b><span>DIAGNÓSTICO<small>Responda às perguntas</small></span></button>
+        <i>→</i>
+        <button data-jump="result"><b>2</b><span>RESULTADO<small>Receba sua leitura</small></span></button>
+        <i>→</i>
+        <button data-jump="demo"><b>3</b><span>DEMONSTRAÇÃO<small>Veja na prática</small></span></button>
+        <i>→</i>
+        <button data-jump="contact"><b>4</b><span>CONTATO<small>Fale com a gente</small></span></button>
       </div>
+      <div class="social-dock" aria-label="Canais WAP">
+        <a id="waDock" class="social wa" href="#" target="_blank" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4.1A8 8 0 1 1 20 11.5Z"/><path d="M9 8.5c.5 2.8 2.1 4.4 4.8 5"/></svg></a>
+        <a id="igDock" class="social ig" href="#" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1"/></svg></a>
+        <a id="fbDock" class="social fb" href="#" target="_blank" aria-label="Facebook">f</a>
+      </div>
+    </footer>
+  </section>
 
-      <form class="contact-form reveal delay-1" action="https://formsubmit.co/wagnerapneto1988@gmail.com" method="POST">
-        <input type="hidden" name="_subject" value="Novo contato pelo portfólio WAP">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
-        <div class="form-row">
-          <label>Nome<input type="text" name="nome" required autocomplete="name"></label>
-          <label>E-mail<input type="email" name="email" required autocomplete="email"></label>
-        </div>
-        <div class="form-row">
-          <label>Empresa<input type="text" name="empresa" autocomplete="organization"></label>
-          <label>Assunto<input type="text" name="assunto" required></label>
-        </div>
-        <label>Mensagem<textarea name="mensagem" rows="5" required></textarea></label>
-        <button type="submit">ENVIAR MENSAGEM <span>→</span></button>
-        <small>O FormSubmit pode solicitar confirmação no primeiro envio.</small>
-      </form>
-    </section>
-  </main>
-
-  <footer class="footer shell">
-    <div><img src="assets/logo-wap.jpg" alt="WAP"><span>WAP Consultoria Digital</span></div>
-    <p>Wagner Neto • Desenvolvimento Web • Automação • IA</p>
-  </footer>
-
-  <script src="config.js"></script>
-  <script src="script.js"></script>
+  <div id="toast" class="toast" aria-live="polite"></div>
+</main>
+<script src="config.js"></script>
+<script src="prospects.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

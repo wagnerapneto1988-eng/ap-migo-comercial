@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WAP — Painel da Jornada</title>
+<style>
+body{margin:0;background:#020913;color:#eef8ff;font-family:Arial,sans-serif;padding:32px}h1{margin-bottom:4px}.muted{color:#8da9ba}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:25px 0}.card,.box{background:#071725;border:1px solid #185171;border-radius:16px;padding:18px}.card b{font-size:28px;display:block;margin-top:5px}.toolbar{display:flex;gap:10px;flex-wrap:wrap}.toolbar button{background:#0a8fe8;color:white;border:0;border-radius:10px;padding:10px 14px;font-weight:700;cursor:pointer}table{width:100%;border-collapse:collapse;margin-top:15px;font-size:13px}th,td{padding:10px;border-bottom:1px solid #17384d;text-align:left}th{color:#48c4ff}.tag{padding:4px 8px;border-radius:20px;background:#0b2c43}.danger{color:#ffaf50}@media(max-width:850px){.cards{grid-template-columns:1fr 1fr}.box{overflow:auto}}
+</style></head>
+<body>
+<h1>Painel da Jornada</h1><p class="muted">Onde o visitante entrou, avançou e onde “perdeu o feijão”.</p>
+<div class="cards">
+  <div class="card"><span>Sessões</span><b id="sessions">0</b></div>
+  <div class="card"><span>Eventos</span><b id="eventsCount">0</b></div>
+  <div class="card"><span>Relatórios</span><b id="reports">0</b></div>
+  <div class="card"><span>WhatsApp</span><b id="wa">0</b></div>
+</div>
+<div class="toolbar"><button onclick="render()">Atualizar</button><button onclick="clearData()">Limpar dados locais</button></div>
+<div class="box">
+  <h2>Sessões recentes</h2>
+  <table><thead><tr><th>Sessão</th><th>Segmento</th><th>Última tela</th><th>Eventos</th><th>Última ação</th></tr></thead><tbody id="rows"></tbody></table>
+</div>
+<script>
+function getEvents(){try{return JSON.parse(localStorage.getItem('wap_journey_events')||'[]')}catch(e){return[]}}
+function render(){
+ const ev=getEvents(), map={};
+ ev.forEach(e=>{map[e.session]??={id:e.session,segment:e.segment,last:e.screen,count:0,ts:e.ts,type:e.type};map[e.session].count++;map[e.session].last=e.screen;map[e.session].ts=e.ts;map[e.session].type=e.type;map[e.session].segment=e.segment});
+ const sessions=Object.values(map).sort((a,b)=>b.ts.localeCompare(a.ts));
+ document.querySelector('#sessions').textContent=sessions.length;
+ document.querySelector('#eventsCount').textContent=ev.length;
+ document.querySelector('#reports').textContent=ev.filter(e=>e.type==='report_generated').length;
+ document.querySelector('#wa').textContent=ev.filter(e=>e.type==='whatsapp_click').length;
+ document.querySelector('#rows').innerHTML=sessions.map(s=>`<tr><td>${s.id.slice(0,12)}…</td><td><span class="tag">${s.segment}</span></td><td>${s.last}</td><td>${s.count}</td><td>${s.type}<br><small class="muted">${new Date(s.ts).toLocaleString()}</small></td></tr>`).join('')||'<tr><td colspan="5" class="danger">Nenhuma jornada registrada neste navegador.</td></tr>';
+}
+function clearData(){if(confirm('Limpar os dados locais de jornada?')){localStorage.removeItem('wap_journey_events');render()}}
+render();
+</script>
+</body></html>
