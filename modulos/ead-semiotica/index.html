@@ -1,0 +1,13 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAP EAD — Semiótica na Prática</title><link rel="stylesheet" href="style.css"></head><body>
+<header><b>WAP <i>EAD</i></b><span>SEMIÓTICA NA PRÁTICA</span><div class="prog"><em id="progress"></em></div><small id="pct">0%</small></header>
+<aside><button class="active" data-view="home">⌂<span>Início</span></button><button data-view="course">▦<span>Módulos</span></button><button data-view="activity">✎<span>Atividade</span></button><button data-view="stats">◔<span>Progresso</span></button></aside>
+<main>
+<section id="home" class="view active"><div class="hero"><div><label>CURSO INTERATIVO</label><h1>Semiótica<br><strong>na prática.</strong></h1><p>Aprenda a construir significado com imagens, signos, cores, formas e movimento.</p><button onclick="openLesson(0,0)">COMEÇAR CURSO →</button></div></div><div class="principle"><b>IMAGEM</b> comunica <i>•</i> <b>ÍCONE</b> orienta <i>•</i> <b>TEXTO</b> confirma <i>•</i> <b>MOVIMENTO</b> responde</div><div id="modulesHome" class="modules"></div></section>
+<section id="course" class="view"><h2>Trilha de aprendizagem</h2><p class="sub">6 módulos • 17 aulas • aprendizado rápido e aplicado</p><div id="courseList"></div></section>
+<section id="lesson" class="view"><button class="back" onclick="show('course')">← Trilha</button><div class="lessonWrap"><div class="prof">👨‍🏫<span>PROFESSOR SIGNO</span></div><label id="lessonModule"></label><h2 id="lessonTitle"></h2><p id="lessonIntro"></p><div id="lessonVisual" class="lessonVisual"></div><div class="lessonText" id="lessonText"></div><div class="challenge"><b>OBSERVE</b><p id="lessonChallenge"></p></div><button id="completeBtn">CONCLUIR AULA ✓</button></div></section>
+<section id="activity" class="view"><h2>Desafio semiótico</h2><p class="sub">Qual símbolo comunica atenção mais rapidamente?</p><div class="quiz"><button data-ok="0">○</button><button data-ok="1">⚠</button><button data-ok="0">□</button></div><h3 id="quizFeedback">Escolha uma resposta.</h3></section>
+<section id="stats" class="view"><h2>Seu progresso</h2><div class="bigProgress"><b id="bigPct">0%</b><span id="doneCount">0 / 17 aulas</span></div><button onclick="resetProgress()">Reiniciar demonstração</button></section>
+</main><script src="course.js"></script><script src="script.js"></script>
+<script src="../../config.js"></script>
+<script src="../../module-contact.js"></script>
+</body></html>
