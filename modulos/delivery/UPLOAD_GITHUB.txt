@@ -1,0 +1,29 @@
+WAP Delivery — pacote corrigido para GitHub Pages
+
+DESTINO:
+ap-migo-comercial/modulos/delivery/
+
+Substitua os arquivos existentes desta pasta pelos arquivos deste pacote.
+A estrutura final deve ser:
+
+delivery/
+├── index.html
+├── style.css
+├── script.js
+├── config.js
+├── products.js
+├── manifest.webmanifest
+├── README.txt
+└── assets/
+    ├── hero.png
+    ├── conceito-pizzaria.png
+    ├── pizza-bacon.png
+    ├── pizza-calabresa.png
+    ├── pizza-frango.png
+    ├── pizza-portuguesa.png
+    └── pizza-queijos.png
+
+IMPORTANTE:
+- A pasta x7 NÃO faz parte desta versão.
+- Todos os caminhos de imagem usam assets/...
+- Depois do commit aguarde o GitHub Pages e use Ctrl+Shift+R.
