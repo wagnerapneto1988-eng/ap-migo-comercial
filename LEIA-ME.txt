@@ -1,0 +1,20 @@
+WAP MIGO COMERCIAL - CORREÇÃO DO MODELO EAD
+
+ARQUIVOS DESTA ATUALIZAÇÃO:
+- index.html
+- fix-modelo.js
+
+COMO SUBIR:
+1. Abra a raiz do repositório ap-migo-comercial.
+2. Faça upload destes dois arquivos na raiz.
+3. Confirme a substituição do index.html.
+4. O arquivo fix-modelo.js deve ficar ao lado do index.html.
+
+CORREÇÃO:
+- Educação/EAD passa a abrir:
+  modulos/ead/ead-semiotica/index.html
+
+- Delivery continua abrindo:
+  modulos/delivery/index.html
+
+Não precisa editar código manualmente.
