@@ -249,8 +249,8 @@ function renderDemo(){
   $('#demoSub').textContent=`Estrutura aplicada a ${m?.label||'educação'}: conteúdo, trilhas, progresso e acompanhamento.`;
   $('#demoProduct').innerHTML=`
    <div class="demo-hero">
-    <img src="modulos/ead-portugues/assets/portugues-aula-visual.png" alt="Demonstração de experiência EAD">
-    <div class="demo-copy"><b>Aprendizagem que mostra o caminho.</b><p>Conteúdo, progresso, avaliações e acompanhamento em uma experiência própria.</p><a href="modulos/ead-portugues/index.html">VER MODELO EAD</a></div>
+    <img src="modulos/ead/ead-portugues/assets/portugues-aula-visual.png" alt="Demonstração de experiência EAD">
+    <div class="demo-copy"><b>Aprendizagem que mostra o caminho.</b><p>Conteúdo, progresso, avaliações e acompanhamento em uma experiência própria.</p><a href="modulos/ead/ead-semiotica/index.html">VER MODELO EAD</a></div>
    </div>
    <div class="demo-side"><b>TRILHA EAD</b><span>▶ Conteúdo</span><span>▣ Aulas</span><span>✓ Avaliações</span><article>Progresso do aluno<small>Leitura contínua</small></article><article>Acompanhamento<small>Pontos de abandono</small></article></div>`;
   $('#demoFeatures').innerHTML='<span>▣<b>Conteúdo</b><small>Organizado</small></span><span>✓<b>Progresso</b><small>Visível</small></span><span>◎<b>Avaliação</b><small>Integrada</small></span><span>✦<b>Acompanhamento</b><small>Contínuo</small></span>';
@@ -278,7 +278,7 @@ function renderPlan(){
  $('#planNext').textContent=state.family==='food'?'Estrutura funcional de Delivery':state.family==='education'?'Estrutura funcional EAD':'Diagnóstico ampliado';
  $('#planNextText').textContent='A demonstração permanece ligada à apresentação WAP e aos canais de contato.';
  const link=$('#openModel');
- if(state.family==='education'){link.href='modulos/ead-portugues/index.html';$('#modelIcon').textContent='🎓';$('#modelTitle').textContent='Abrir modelo EAD'}
+ if(state.family==='education'){link.href='modulos/ead/ead-semiotica/index.html';$('#modelIcon').textContent='🎓';$('#modelTitle').textContent='Abrir modelo EAD'}
  else{link.href='modulos/delivery/index.html';$('#modelIcon').textContent='🍽';$('#modelTitle').textContent='Abrir modelo Delivery'}
  sessionStorage.setItem('wap_journey_context',JSON.stringify({session,segment:state.segment,family:state.family,answers:state.answers,return_url:location.href}));
 }

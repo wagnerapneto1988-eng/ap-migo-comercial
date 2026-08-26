@@ -1,20 +1,29 @@
-WAP MIGO COMERCIAL - CORREÇÃO DO MODELO EAD
+AP-MIGO-COMERCIAL V26 — CORREÇÃO FINAL DOS CAMINHOS
 
-ARQUIVOS DESTA ATUALIZAÇÃO:
-- index.html
-- fix-modelo.js
+O print confirmou a estrutura:
+
+modulos/
+  ead/
+    ead-portugues/
+    ead-semiotica/
+  delivery/
+
+CORREÇÕES FEITAS NO script.js:
+1) Prévia EAD:
+   modulos/ead/ead-portugues/assets/portugues-aula-visual.png
+
+2) Botão VER MODELO EAD:
+   modulos/ead/ead-semiotica/index.html
+
+3) Botão Abrir modelo EAD no Plano:
+   modulos/ead/ead-semiotica/index.html
+
+4) Delivery permanece:
+   modulos/delivery/index.html
 
 COMO SUBIR:
-1. Abra a raiz do repositório ap-migo-comercial.
-2. Faça upload destes dois arquivos na raiz.
-3. Confirme a substituição do index.html.
-4. O arquivo fix-modelo.js deve ficar ao lado do index.html.
-
-CORREÇÃO:
-- Educação/EAD passa a abrir:
-  modulos/ead/ead-semiotica/index.html
-
-- Delivery continua abrindo:
-  modulos/delivery/index.html
-
-Não precisa editar código manualmente.
+- Abra a RAIZ do repositório ap-migo-comercial.
+- Suba index.html e script.js deste pacote.
+- Substitua os arquivos existentes.
+- NÃO coloque estes dois arquivos dentro de modulos/.
+- Depois aguarde o GitHub Pages publicar e use Ctrl+F5.
